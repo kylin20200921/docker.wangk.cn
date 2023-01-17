@@ -1,0 +1,8 @@
+#!/bin/bash
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://lnmp.wangk.cn
+
+
+export DEBIAN_FRONTEND=noninteractive
+
+/satis/bin/docker-entrypoint.sh --ansi --ansi build /build/satis.json /build/output

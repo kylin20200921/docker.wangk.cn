@@ -1,0 +1,24 @@
+[user]
+	name = 王康
+	email = earl.k.wang@wangk.cn
+[safe]
+	directory = *
+[color]
+	ui = true
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+[core]
+	autocrlf = input
+	safecrlf = false
+[pull]
+	rebase = false
+[credential]
+	helper = store
+[init]
+	defaultBranch = master
+#[url "https://hub.fastgit.xyz/"]
+#	insteadOf = https://github.com/
+[url "https://github.91chi.fun/https://github.com/"]
+	insteadOf = https://github.com/

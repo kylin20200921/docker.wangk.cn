@@ -1,0 +1,28 @@
+FROM mariadb:10.8
+
+ARG PASSWORD=root
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    TZ=Asia/Shanghai
+
+RUN sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list && sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+    apt clean && apt-get update && apt-get upgrade -y && \
+    apt-get install -y openssh-server gnupg supervisor && \
+    mkdir /var/run/sshd && \
+    echo "root:$PASSWORD" |chpasswd && \
+    sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
+    mkdir -p /root/.ssh && mkdir -p ~/.gnupg && chmod 600 ~/.gnupg && echo "disable-ipv6" > ~/.gnupg/dirmngr.conf && mkdir -p /etc/apt/keyrings && \
+    echo "keyserver hkp://keyserver.ubuntu.com:80" >> ~/.gnupg/dirmngr.conf  && gpg --recv-key 0x59FDA1CE1B84B3FAD89366C027557F056DC33CA5 && gpg --export 0x59FDA1CE1B84B3FAD89366C027557F056DC33CA5 > /etc/apt/keyrings/fish-shell-ubuntu-release-3-$(lsb_release -cs).gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/fish-shell-ubuntu-release-3-$(lsb_release -cs).gpg] https://ppa.launchpadcontent.net/fish-shell/release-3/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/fish-shell-ubuntu-release-3-$(lsb_release -cs).list && \
+    apt-get update && apt-get install -y fish wget git && chsh -s /usr/bin/fish && \
+    mkdir -p /root/.config && cd /root/.config && wget -qO- http://static.cy-sq.com/wangk/fish20220423_2.tar.gz | tar xvz && \
+    apt-get -y autoremove && apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+COPY . /
+RUN chmod +x /usr/local/bin/* && sed -i "s/password = .*/password = $PASSWORD/" /etc/supervisord.conf
+
+EXPOSE 22 3306 9001
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

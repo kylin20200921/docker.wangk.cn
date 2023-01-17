@@ -1,0 +1,13 @@
+{
+    "config": {},
+    "repositories": {
+        "kylin2020": {
+            "type": "composer",
+            "url": "https://kylin20200921.gitee.io/packages.wangk.cn"
+        },
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer"
+        }
+    }
+}
