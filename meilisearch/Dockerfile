@@ -21,8 +21,9 @@ RUN set -eux; \
 
 # Run
 FROM kylin20200921/alpine
-
-ARG PASSWORD=root
+LABEL author="王康"
+LABEL email="earl.k.wang@wangk.cn"
+ARG PASSWORD=Kylin#20200921
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=Asia/Shanghai \
     MEILI_MASTER_KEY=$PASSWORD \
