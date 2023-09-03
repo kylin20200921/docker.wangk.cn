@@ -1,0 +1,9 @@
+#!/bin/bash
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://lnmp.wangk.cn
+
+
+export DEBIAN_FRONTEND=noninteractive
+
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+apk update && apk upgrade --no-cache

@@ -1,0 +1,15 @@
+{
+  "config": {},
+  "repositories": {
+    "packagist": {
+      "description": "腾讯云镜像",
+      "type": "composer",
+      "url": "https://mirrors.tencent.com/composer/"
+    },
+    "packagist.wangk.cn": {
+      "description": "麒麟爸镜像",
+      "type": "composer",
+      "url": "https://kylin20200921.gitee.io/packagist.wangk.cn"
+    }
+  }
+}

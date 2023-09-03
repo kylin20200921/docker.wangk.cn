@@ -1,0 +1,88 @@
+#!/bin/sh
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://blog.wangk.cn
+
+
+function acme() {
+    issue=''
+    dns=${dns-dns_ali}
+    for v in $domains;
+    do
+        issue="$issue -d $v -d *.$v"
+        
+        sed "s/wangk.cn/$v/g" /var/acme/fpm.conf > "/var/acme.sh/vhost/fpm/$v.conf"
+        sed -i "s/$v.crt/$name.crt/g" /var/acme.sh/vhost/fpm/$v.conf
+        sed -i "s/$v.key/$name.key/g" /var/acme.sh/vhost/fpm/$v.conf
+
+        sed "s/wangk.cn/$v/g" /var/acme/cli.conf > "/var/acme.sh/vhost/cli/$v.conf"
+        sed -i "s/$v.crt/$name.crt/g" /var/acme.sh/vhost/cli/$v.conf
+        sed -i "s/$v.key/$name.key/g" /var/acme.sh/vhost/cli/$v.conf
+        sed -i "s/blog.$v/blog.wangk.cn/g" /var/acme.sh/vhost/cli/$v.conf
+    done
+    /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt --issue $issue --dns $dns --dnssleep
+    if [ -s "$LE_WORKING_DIR/${domain}/fullchain.cer" ]; then
+        rm -rf $SSL_PATH/${domain}.*
+        /root/.acme.sh/acme.sh --install-cert -d ${domain} --fullchain-file $SSL_PATH/${name}.crt --key-file $SSL_PATH/${name}.key
+    fi
+    /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt --issue $issue --dns $dns --install-cert -d ${domain} --fullchain-file $SSL_PATH/${name}.crt --key-file $SSL_PATH/${name}.key
+
+}
+
+mkdir -p $LE_WORKING_DIR
+mkdir -p $SSL_PATH
+mkdir -p /var/acme.sh/vhost/fpm 
+mkdir -p /var/acme.sh/vhost/cli
+
+# 王康
+export Ali_Key=ko7ARPQgEA9AQNC7
+export Ali_Secret=fWy8GGh5WtIYdVx6NHmWn8HJAC3eKB
+dns=dns_ali
+domain="wangk.cn"
+name="cn.wnagk"
+domains="wangk.cn ani2u.com anitoys.vip loveqy.cn lovewk.cn penserphp.com wangk.pub wangk.space wangk.top wangk.work yyltd.cn wangk.online wangk.site"
+acme
+
+# 王康
+export Ali_Key=LTAI5tRysinGuE5tFCBVw3Mf
+export Ali_Secret=0NY7ojvgSWSLwyGZ9aAwvoRaqFeR8K
+dns=dns_ali
+domain="wangk.win"
+name="en.wnagk"
+domains="wangk.win projects.date soloyo.trade wangk.date wangk.loan wangk.party wangk.science wangk.trade yyltd.bid"
+acme
+
+# 孙美洁
+export DP_Id=337028
+export DP_Key=a2b960257d3e4f57f6e1bb6077bee38c
+dns=dns_dp
+domain="m-dz.com"
+name="com.m-dz"
+domains="m-dz.com "
+acme
+
+# 芃宇教育
+export DP_Id=341111
+export DP_Key=b4e0809b384993f020efda667f67b973
+dns=dns_dp
+domain="py-edu.cn"
+name="cn.py-edu"
+domains="py-edu.cn fanyu-edu.com"
+acme
+
+# 平原科技
+export Ali_Key=LTAI5tFxsZAg6DUvXZSiriDE
+export Ali_Secret=7Ogvpsvbww5YeTIifEmavXOskMvd3U
+dns=dns_ali
+domain="pysxcs.com"
+name="com.pysxcs"
+domains="pysxcs.com"
+acme
+
+# 源计划科技
+export Ali_Key=LTAI5t7z5tRUQZVaRZPwF8xv
+export Ali_Secret=Lf41lJNVqajYboobBekNZPwZmHt2sN
+dns=dns_ali
+domain="haonong365.com"
+name="com.haonong365"
+domains="haonong365.com"
+acme

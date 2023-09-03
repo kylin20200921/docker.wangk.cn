@@ -1,0 +1,16 @@
+#!/bin/bash
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://lnmp.wangk.cn
+
+
+export DEBIAN_FRONTEND=noninteractive
+
+cd /tiktok
+url=${1:-MS4wLjABAAAAc_aK_eW-TWNHYMpXNEyrwkudnGbMUEl9Fol-q2gpMmO0t90SXR69OZzBJxKcIHbV}
+urll=${#url}
+
+if [ ${urll} -gt 20 ]; then
+    python TikTokTool.py -u https://www.douyin.com/user/$url/
+else
+    python TikTokTool.py -u https://v.douyin.com/$url/
+fi

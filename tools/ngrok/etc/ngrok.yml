@@ -1,0 +1,9 @@
+version: "2"
+authtoken: 6HxtuLRwmYCqyRbvnFnEw_f8AAei13TkD7hk3TVd8w
+tunnels:
+  ssh:
+    proto: tcp
+    addr: "22"
+  v2ray:
+    proto: tcp
+    addr: "23650"

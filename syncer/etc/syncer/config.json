@@ -1,0 +1,44 @@
+{
+    "auth": {
+        "registry.cn-shanghai.aliyuncs.com": {
+            "username": "earl.k.wang@wangk.cn",
+            "password": "Computer#987223"
+        },
+        "registry.cn-hangzhou.aliyuncs.com": {
+            "username": "earl.k.wang@wangk.cn",
+            "password": "Computer#987223"
+        },
+        "registry.cn-nanjing.aliyuncs.com": {
+            "username": "earl.k.wang@wangk.cn",
+            "password": "Computer#987223"
+        },
+        "registry.hub.docker.com": {
+            "username": "kylin20200921",
+            "password": "Computer#987223"
+        }
+    },
+    "images": {
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/acme": "kylin20200921/acme",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/alist": "kylin20200921/alist",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/alpine": "kylin20200921/alpine",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/aria2": "kylin20200921/aria2",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/caddy": "kylin20200921/caddy",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/centos": "kylin20200921/centos",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/debian": "kylin20200921/debian",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/golang": "kylin20200921/golang",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/mariadb": "kylin20200921/mariadb",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/memcached": "kylin20200921/memcached",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/mysql": "kylin20200921/mysql",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/nginx": "kylin20200921/nginx",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/node": "kylin20200921/node",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/php": "kylin20200921/php",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/postgres": "kylin20200921/postgres",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/python": "kylin20200921/python",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/rabbitmq": "kylin20200921/rabbitmq",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/redis": "kylin20200921/redis",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/sail": "kylin20200921/sail",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/syncer": "kylin20200921/syncer",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/tomcat": "kylin20200921/tomcat",
+        "registry.cn-shanghai.aliyuncs.com/kylin20200921/ubuntu": "kylin20200921/ubuntu"
+    }
+}

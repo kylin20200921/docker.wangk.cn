@@ -1,0 +1,5 @@
+#!/bin/bash
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://lnmp.wangk.cn
+
+xiaomiqiu -config /etc/xiaomiqiu.conf start-all

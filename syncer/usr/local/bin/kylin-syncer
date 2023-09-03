@@ -1,0 +1,12 @@
+#!/bin/bash
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://blog.wangk.cn
+
+
+if [ "$1" ]; then
+    echo "image-syncer --config=/etc/syncer/config.json --log=/var/log/syncer.log"
+    image-syncer --config=/etc/syncer/config.json --log=/var/log/syncer.log
+else
+    echo "image-syncer --config=/etc/syncer/config.json --log=/var/log/syncer.log"
+    image-syncer --config=/etc/syncer/config.json --log=/var/log/syncer.log
+fi

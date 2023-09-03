@@ -1,0 +1,6 @@
+#!/bin/bash
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://lnmp.wangk.cn
+
+mkdir -p /root/.cpolar/ && cp -rf /etc/cpolar.yml /root/.cpolar/cpolar.yml
+/usr/local/cpolar/cpolar start-all

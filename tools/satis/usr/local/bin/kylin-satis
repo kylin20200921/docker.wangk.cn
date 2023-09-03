@@ -1,0 +1,15 @@
+#!/bin/bash
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://lnmp.wangk.cn
+
+
+export DEBIAN_FRONTEND=noninteractive
+if [ ! -d "/build/.git" ];then
+    cd /build && git clone https://gitee.com/kylin20200921/packagist.wangk.cn.git .
+fi
+cd /build && git pull
+/satis/bin/docker-entrypoint.sh --ansi --ansi build /build/satis.json /build/docs
+cd /build
+git add -A .
+git commit -m "麒麟爸更新"
+git push

@@ -1,0 +1,6 @@
+#!/bin/bash
+# Author:  王康 <earl.k.wang@wangk.cn>
+# BLOG:  https://lnmp.wangk.cn
+
+mkdir -p /root/.config/ngrok && cp -rf /etc/ngrok.yml /root/.config/ngrok/ngrok.yml
+ngrok start --all
